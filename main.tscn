@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ptmm0gi8ugi"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_mgsto"]
+[ext_resource type="PackedScene" uid="uid://dx5bv4rboi0lv" path="res://asteroid.tscn" id="2_bot5a"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_mgsto")
+ast_scene = ExtResource("2_bot5a")
