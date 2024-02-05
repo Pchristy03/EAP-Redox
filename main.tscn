@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6ptmm0gi8ugi"]
+[gd_scene load_steps=6 format=3 uid="uid://b6ptmm0gi8ugi"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mgsto"]
 [ext_resource type="PackedScene" uid="uid://dx5bv4rboi0lv" path="res://asteroid.tscn" id="2_bot5a"]
+[ext_resource type="PackedScene" uid="uid://7l77yofggtif" path="res://projectile.tscn" id="3_ijxf1"]
 [ext_resource type="PackedScene" uid="uid://bxt30ase8f12x" path="res://player.tscn" id="3_tc4d2"]
+[ext_resource type="PackedScene" uid="uid://dfaqyqp5seefj" path="res://hud.tscn" id="4_485ph"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_mgsto")
 ast_scene = ExtResource("2_bot5a")
+proj_scene = ExtResource("3_ijxf1")
+
+[node name="HUD" parent="." instance=ExtResource("4_485ph")]
 
 [node name="Player" parent="." instance=ExtResource("3_tc4d2")]
-position = Vector2(568, 579)
+position = Vector2(200, 500)
+
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
