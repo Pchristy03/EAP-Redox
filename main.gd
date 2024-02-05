@@ -9,7 +9,7 @@ func _ready():
 func create_ast(start_points):
 	for i in range(len(start_points)):
 		var aster = ast_scene.instantiate()
-		aster.init(Vector2(start_points[i], 50), Vector2(start_points[i], 500))
+		aster.position = Vector2(start_points[i], 0)
 		aster.add_to_group("Asteroids")
 		add_child(aster)
 		

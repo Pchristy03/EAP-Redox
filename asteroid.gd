@@ -5,13 +5,9 @@ var velocity_dir = Vector2.ZERO
 
 const speed = 200
 
-func init(start_pos, end_pos):
-	position = start_pos
-	velocity_dir = end_pos - start_pos
-	velocity_dir = velocity_dir.normalized()
-
 func _ready():
-	pass
+	velocity_dir = Vector2(position.x, position.y + 100) - position
+	velocity_dir = velocity_dir.normalized()
 
 func _physics_process(_delta):
 	linear_velocity = velocity_dir * speed
