@@ -1,7 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx5bv4rboi0lv"]
+[gd_scene load_steps=8 format=3 uid="uid://dx5bv4rboi0lv"]
 
 [ext_resource type="Script" path="res://asteroid.gd" id="1_6ar2y"]
-[ext_resource type="Texture2D" uid="uid://bqu7a8ajo65uk" path="res://icon.svg" id="1_wui61"]
+[ext_resource type="Texture2D" uid="uid://pikgwuff8v6x" path="res://Art Assets/Asteroid1.png" id="2_viuj2"]
+[ext_resource type="Texture2D" uid="uid://dvvrnrofjp0jr" path="res://Art Assets/Asteroid2.png" id="3_e7fq2"]
+[ext_resource type="Texture2D" uid="uid://bqxse80eq35dp" path="res://Art Assets/Asteroid3.png" id="4_047md"]
+[ext_resource type="Texture2D" uid="uid://0fmur4heikwx" path="res://Art Assets/Asteroid4.png" id="5_yrp5t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjl8d"]
+radius = 18.0278
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxd3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_viuj2")
+}],
+"loop": true,
+"name": &"asteroid1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e7fq2")
+}],
+"loop": true,
+"name": &"asteroid2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_047md")
+}],
+"loop": true,
+"name": &"asteroid3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yrp5t")
+}],
+"loop": true,
+"name": &"asteroid4",
+"speed": 5.0
+}]
 
 [node name="Asteroid" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -9,10 +50,13 @@ script = ExtResource("1_6ar2y")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wui61")
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_hjl8d")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jxd3r")
+animation = &"asteroid4"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

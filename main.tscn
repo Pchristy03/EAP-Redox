@@ -11,9 +11,9 @@ script = ExtResource("1_mgsto")
 ast_scene = ExtResource("2_bot5a")
 proj_scene = ExtResource("3_ijxf1")
 
-[node name="HUD" parent="." instance=ExtResource("4_485ph")]
-
 [node name="Player" parent="." instance=ExtResource("3_tc4d2")]
-position = Vector2(200, 500)
+position = Vector2(238, 492)
+
+[node name="HUD" parent="." instance=ExtResource("4_485ph")]
 
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
