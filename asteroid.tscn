@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="Asteroid" type="RigidBody2D"]
+collision_layer = 3
 gravity_scale = 0.0
 script = ExtResource("1_6ar2y")
 metadata/_edit_group_ = true

@@ -17,11 +17,14 @@ offset_bottom = 40.0
 texture = ExtResource("2_no8fw")
 
 [node name="Heart2" type="TextureRect" parent="."]
-offset_right = 40.0
+offset_left = 57.0
+offset_right = 97.0
 offset_bottom = 40.0
 texture = ExtResource("2_no8fw")
 
 [node name="Heart3" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 120.0
+offset_top = -1.0
+offset_right = 160.0
+offset_bottom = 39.0
 texture = ExtResource("2_no8fw")
