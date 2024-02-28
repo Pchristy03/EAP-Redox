@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://7l77yofggtif"]
 
 [ext_resource type="Script" path="res://projectile.gd" id="1_2ltaw"]
-[ext_resource type="Texture2D" uid="uid://xey4tfdrntea" path="res://laser_blue.png" id="2_3nyvr"]
+[ext_resource type="Texture2D" uid="uid://xey4tfdrntea" path="res://Art Assets/laser_blue.png" id="2_hk107"]
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_2ltaw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.32)
-texture = ExtResource("2_3nyvr")
+texture = ExtResource("2_hk107")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
