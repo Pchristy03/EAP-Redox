@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xey4tfdrntea" path="res://laser_blue.png" id="2_3nyvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40ity"]
-size = Vector2(129, 128)
+size = Vector2(12, 28)
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_2ltaw")
@@ -14,7 +14,6 @@ scale = Vector2(0.4, 0.32)
 texture = ExtResource("2_3nyvr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_40ity")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
