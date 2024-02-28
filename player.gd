@@ -22,5 +22,6 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 	elif position.x >= r_boundary and velocity.x > 0:
 		velocity = Vector2.ZERO
-		
+	
+	position = position.clamp(Vector2(l_boundary, 500), Vector2(r_boundary, 500))
 	move_and_slide()
