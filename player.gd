@@ -4,8 +4,8 @@ signal shoot(location)
 
 const move_speed = 300
 
-const l_boundary = 100
-const r_boundary = 800
+const l_boundary = 10
+const r_boundary = 750
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
