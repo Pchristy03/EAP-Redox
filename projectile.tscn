@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://7l77yofggtif"]
 
 [ext_resource type="Script" path="res://projectile.gd" id="1_2ltaw"]
-[ext_resource type="Texture2D" uid="uid://bqu7a8ajo65uk" path="res://icon.svg" id="1_pvkjj"]
+[ext_resource type="Texture2D" uid="uid://xey4tfdrntea" path="res://laser_blue.png" id="2_3nyvr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40ity"]
 size = Vector2(129, 128)
@@ -10,7 +10,8 @@ size = Vector2(129, 128)
 script = ExtResource("1_2ltaw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_pvkjj")
+scale = Vector2(0.4, 0.32)
+texture = ExtResource("2_3nyvr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
