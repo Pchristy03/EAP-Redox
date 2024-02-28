@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 signal shoot(location)
+signal hurt
+@export var lives: int = 3
 
 const move_speed = 300
 

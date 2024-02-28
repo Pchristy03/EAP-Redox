@@ -19,3 +19,12 @@ func _on_player_shoot(location):
 	proj.position = location
 	proj.add_to_group("Projectiles")
 	add_child(proj)
+
+
+func _on_player_hurt():
+	if $Player.lives ==2:
+		$HUD/Heart3.hide()
+	if $Player.lives ==1:
+		$HUD/Heart2.hide()
+	if $Player.lives ==0:
+		$HUD/Heart1.hide()

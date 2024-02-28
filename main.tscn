@@ -20,4 +20,5 @@ position = Vector2(238, 492)
 
 [node name="HUD" parent="." instance=ExtResource("4_485ph")]
 
+[connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
