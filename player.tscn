@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxt30ase8f12x"]
+[gd_scene load_steps=5 format=3 uid="uid://bxt30ase8f12x"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_0k6yj"]
 [ext_resource type="Texture2D" uid="uid://4ip4rf1awaa" path="res://Art Assets/player_ship.png" id="2_5yfuw"]
@@ -6,6 +6,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f62n5"]
 radius = 8.0
 height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vcjwn"]
+radius = 8.0
+height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -17,3 +21,13 @@ shape = SubResource("CapsuleShape2D_f62n5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_5yfuw")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_vcjwn")
+debug_color = Color(1, 0, 0.101961, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
