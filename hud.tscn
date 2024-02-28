@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfaqyqp5seefj"]
+[gd_scene load_steps=3 format=3 uid="uid://dfaqyqp5seefj"]
 
 [ext_resource type="Texture2D" uid="uid://dncyre6ys6mwy" path="res://Art Assets/Earth.png" id="1_4mw2c"]
+[ext_resource type="Texture2D" uid="uid://5exl1ejw5wvv" path="res://Art Assets/Unofficial Game Heart.png" id="2_no8fw"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = -1
@@ -9,3 +10,18 @@ layer = -1
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_4mw2c")
+
+[node name="Heart1" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_no8fw")
+
+[node name="Heart2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_no8fw")
+
+[node name="Heart3" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_no8fw")
