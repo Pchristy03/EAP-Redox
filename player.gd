@@ -10,8 +10,8 @@ const shoot_cooldown = 0.5
 var can_shoot = true
 var cooldown_timer = 0
 
-const l_boundary = 100
-const r_boundary = 800
+const l_boundary = 10
+const r_boundary = 750
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") and can_shoot:
