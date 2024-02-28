@@ -5,14 +5,26 @@ signal hurt
 @export var lives: int = 3
 
 const move_speed = 300
+const shoot_cooldown = 0.5
+
+var can_shoot = true
+var cooldown_timer = 0
 
 const l_boundary = 100
 const r_boundary = 800
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and can_shoot:
 		emit_signal("shoot", Vector2(position.x, (position.y - 10)))
-
+		can_shoot = false
+		cooldown_timer = shoot_cooldown
+		
+		# Update cooldown timer
+	if !can_shoot:
+		cooldown_timer -= get_process_delta_time()
+		if cooldown_timer <= 0:
+			can_shoot = true
+			
 func _physics_process(_delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
