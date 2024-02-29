@@ -5,6 +5,7 @@ signal hurt
 @export var lives: int = 3
 
 const move_speed = 300
+const accel = 600
 const shoot_cooldown = 0.5
 
 var can_shoot = true
@@ -25,12 +26,15 @@ func _process(_delta):
 		if cooldown_timer <= 0:
 			can_shoot = true
 			
-func _physics_process(_delta):
+func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * move_speed
+		if velocity.x == 0 || velocity.x/direction > 0:
+			velocity.x = move_toward(velocity.x, move_speed*direction, accel*delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, accel/30)
 	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.x = move_toward(velocity.x, 0, accel/30)
 		
 	if position.x <= l_boundary and velocity.x < 0:
 		velocity = Vector2.ZERO
