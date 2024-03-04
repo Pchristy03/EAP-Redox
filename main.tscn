@@ -20,14 +20,15 @@ proj_scene = ExtResource("3_ijxf1")
 process_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("3_tc4d2")]
-position = Vector2(238, 492)
+position = Vector2(112, 490)
 
 [node name="HUD" parent="." instance=ExtResource("4_485ph")]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(383, 1205)
+position = Vector2(387, 1200)
 shape = SubResource("CapsuleShape2D_wtbbb")
 
 [connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
