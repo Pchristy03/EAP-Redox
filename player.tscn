@@ -12,6 +12,8 @@ radius = 8.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_0k6yj")
 metadata/_edit_group_ = true
@@ -23,8 +25,8 @@ shape = SubResource("CapsuleShape2D_f62n5")
 texture = ExtResource("2_5yfuw")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 2
+collision_mask = 4
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_vcjwn")
