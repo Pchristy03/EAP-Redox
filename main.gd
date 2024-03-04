@@ -12,7 +12,6 @@ func create_ast(start_points):
 		aster.position = Vector2(start_points[i], 0)
 		aster.add_to_group("Asteroids")
 		add_child(aster)
-		
 
 func _on_player_shoot(location):
 	var proj = proj_scene.instantiate()
