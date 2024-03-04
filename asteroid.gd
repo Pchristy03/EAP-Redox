@@ -6,7 +6,7 @@ var dest_dir = Vector2.ZERO
 const speed = 200
 
 func _ready():
-	
+	pass
 
 func init(dest):
 	dest_dir = position.direction_to(Vector2(position.x, position.y + 1))
