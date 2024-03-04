@@ -14,7 +14,7 @@ const speed = 200
 var explosion_occurred = false
 
 func _ready():
-	pass
+	
 
 # Move the asteroid in the physics process
 func _physics_process(_delta):
