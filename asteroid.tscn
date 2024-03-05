@@ -86,7 +86,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jxd3r")
-animation = &"asteroid1"
+animation = &"asteroid4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -96,9 +96,10 @@ shape = SubResource("CircleShape2D_hjl8d")
 texture_filter = 1
 scale = Vector2(1.32504, 1.26438)
 emitting = false
-amount = 30
+amount = 50
 process_material = SubResource("ParticleProcessMaterial_bxj43")
 texture = ExtResource("3_e7fq2")
+lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 script = ExtResource("6_wvey3")
