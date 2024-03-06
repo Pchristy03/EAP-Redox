@@ -53,6 +53,7 @@ shape = SubResource("CapsuleShape2D_wtbbb")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_lpshr")]
+can_pause = true
 
 [connection signal="pressed" from="PauseController/ResumeButton" to="PauseController" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseController/PauseButton" to="PauseController" method="_on_pause_button_pressed"]
