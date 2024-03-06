@@ -76,8 +76,8 @@ turbulence_initial_displacement_min = -91.4
 turbulence_initial_displacement_max = 6.3
 
 [node name="Asteroid" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 9
+collision_layer = 13
+collision_mask = 12
 script = ExtResource("1_6ar2y")
 metadata/_edit_group_ = true
 

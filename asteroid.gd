@@ -3,18 +3,20 @@ extends CharacterBody2D
 
 var dest_dir = Vector2.ZERO
 
-const speed = 200
+const impulse_speed = 0.5
+const gravity_speed = 7
 
 func init(dest):
 	dest_dir = position.direction_to(Vector2(position.x, position.y + 1))
-	velocity += dest_dir * speed
+	velocity += dest_dir * impulse_speed
 
 func _physics_process(delta):
-	velocity += position.direction_to(Vector2(390, 650)) * speed * delta
+	velocity += position.direction_to(Vector2(390, 650)) * gravity_speed * delta
 	move_and_slide()
 	
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	# queue_free()
+	pass
 
 func activate_particle():
 	$Explosion.emitting = true
