@@ -10,12 +10,12 @@ func _process(delta: float) -> void:
 			pause()
 
 func pause() -> void:
-	get_tree().paused = true
+	get_tree().set_pause(false)
 	$ResumeButton.show()
 	$PauseButton.hide()
 	
 func resume() -> void:
-	get_tree().paused = false
+	get_tree().set_pause(true)
 	$ResumeButton.hide()
 	$PauseButton.show()
 	

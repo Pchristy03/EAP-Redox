@@ -1,23 +1,25 @@
-extends Control
+extends Node
 
 func _ready():
-	$BlurAnimation.play("REST")
+	#$BlurAnimation.play("RESET")
+	pass
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("menu_pause") and !get_tree().paused:
-		pause()
-	elif Input.is_action_just_pressed("menu_pause") and get_tree().paused:
-		resume()
+	if Input.is_action_just_pressed("menu_pause"):
+		if get_tree().paused:
+			resume()
+		else:
+			pause()
 
 func pause() -> void:
-	get_tree().paused = true
 	$BlurAnimation.play("blur")
+	get_tree().set_pause(true)
 	# $ResumeButton.show()
 	# $PauseButton.hide()
 
 func resume() -> void:
-	get_tree().paused = false
 	$BlurAnimation.play_backwards("blur")
+	get_tree().set_pause(false)
 	# $ResumeButton.hide()
 	# $PauseButton.show()
 
