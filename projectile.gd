@@ -17,6 +17,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_body_entered(body):
-	print("test")
 	body.activate_particle()
 	queue_free()
