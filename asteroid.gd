@@ -11,7 +11,7 @@ const speed = 200
 var explosion_occurred = false
 
 func _ready():
-	pass
+	$AnimatedSprite2D.frame = 1
 
 func init(dest):
 	dest_dir = position.direction_to(Vector2(position.x, position.y + 1))
