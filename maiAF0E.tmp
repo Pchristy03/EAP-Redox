@@ -21,6 +21,7 @@ proj_scene = ExtResource("3_ijxf1")
 
 [node name="PauseController" parent="." instance=ExtResource("4_gvn3p")]
 process_mode = 3
+can_pause = null
 
 [node name="ResumeButton" type="Button" parent="PauseController"]
 offset_left = 722.0
