@@ -11,6 +11,8 @@ const gravity_speed = 10
 var explosion_occurred = false
 
 func _ready():
+	var rng = RandomNumberGenerator.new()
+	rng.seed = position.x + position.y
 	$AnimatedSprite2D.frame = randi_range(0, 3)
 
 func init(dest):
