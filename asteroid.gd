@@ -11,7 +11,7 @@ const gravity_speed = 10
 var explosion_occurred = false
 
 func _ready():
-	$AnimatedSprite2D.frame = 1
+	$AnimatedSprite2D.frame = randi_range(0, 3)
 
 func init(dest):
 	dest_dir = position.direction_to(Vector2(position.x, position.y + 1))
