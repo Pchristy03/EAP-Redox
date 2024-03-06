@@ -24,7 +24,7 @@ func resume() -> void:
 	# $PauseButton.show()
 
 func _on_resume_pressed():
-	resume()
+	get_tree().set_pause(false)
 
 func _on_quit_pressed():
 	get_tree().quit()
