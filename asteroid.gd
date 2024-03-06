@@ -27,6 +27,9 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		# Make the asteroid invisible
 		$AnimatedSprite2D.visible = false
+		set_collision_layer_value(3, false)
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(4, false)
 	move_and_slide()
 	
 # Function to handle when the asteroid exits the screen
