@@ -5,7 +5,7 @@ extends CharacterBody2D
 var dest_dir = Vector2.ZERO
 
 const impulse_speed = 0.5
-const gravity_speed = 7
+const gravity_speed = 10
 
 # Flag to check if the explosion has occurred
 var explosion_occurred = false
@@ -21,7 +21,7 @@ func init(dest):
 func _physics_process(delta):
 	# If explosion hasn't occurred, move the asteroid
 	if not explosion_occurred:
-		velocity += position.direction_to(Vector2(390, 650)) * speed * delta
+		velocity += position.direction_to(Vector2(390, 650)) * delta * gravity_speed
 	else:
 		# If explosion has occurred, stop the asteroid
 		velocity = Vector2.ZERO
