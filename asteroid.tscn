@@ -61,9 +61,8 @@ turbulence_initial_displacement_min = -91.4
 turbulence_initial_displacement_max = 6.3
 
 [node name="Asteroid" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 9
-motion_mode = 1
+collision_layer = 13
+collision_mask = 12
 script = ExtResource("1_6ar2y")
 metadata/_edit_group_ = true
 
@@ -81,10 +80,9 @@ shape = SubResource("CircleShape2D_hjl8d")
 texture_filter = 1
 scale = Vector2(1.32504, 1.26438)
 emitting = false
-amount = 50
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_bxj43")
 texture = ExtResource("3_e7fq2")
-lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 script = ExtResource("6_wvey3")

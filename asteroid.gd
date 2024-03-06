@@ -4,24 +4,24 @@ extends CharacterBody2D
 
 var dest_dir = Vector2.ZERO
 
-# Define a constant speed for the asteroid
-const speed = 200
+const impulse_speed = 0.5
+const gravity_speed = 10
 
 # Flag to check if the explosion has occurred
 var explosion_occurred = false
 
 func _ready():
-	$AnimatedSprite2D.frame = 1
+	$AnimatedSprite2D.frame = randi_range(0, 3)
 
 func init(dest):
 	dest_dir = position.direction_to(Vector2(position.x, position.y + 1))
-	velocity += dest_dir * speed
+	velocity += dest_dir * impulse_speed
 
 # Move the asteroid in the physics process
 func _physics_process(delta):
 	# If explosion hasn't occurred, move the asteroid
 	if not explosion_occurred:
-		velocity += position.direction_to(Vector2(390, 650)) * speed * delta
+		velocity += position.direction_to(Vector2(390, 650)) * delta * gravity_speed
 	else:
 		# If explosion has occurred, stop the asteroid
 		velocity = Vector2.ZERO
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	
 # Function to handle when the asteroid exits the screen
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	pass
 	
 # Function to activate the particle system for explosion
 func activate_particle(): 
