@@ -74,30 +74,32 @@ script = ExtResource("1_wpybx")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 417.0
-offset_top = 164.0
-offset_right = 778.0
-offset_bottom = 372.0
+offset_top = -1.0
+offset_right = 1155.0
+offset_bottom = 652.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Resume"
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Quit
 "
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_vm005")
-offset_left = -1.0
-offset_top = 2.0
-offset_right = 1144.0
-offset_bottom = 637.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 1154.0
+offset_bottom = 649.0
 
 [node name="BlurAnimation" type="AnimationPlayer" parent="."]
 libraries = {
