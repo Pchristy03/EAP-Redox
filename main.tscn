@@ -23,6 +23,7 @@ proj_scene = ExtResource("3_ijxf1")
 process_mode = 3
 
 [node name="ResumeButton" type="Button" parent="PauseController"]
+visible = false
 offset_left = 722.0
 offset_top = 4.0
 offset_right = 764.0
@@ -39,7 +40,7 @@ icon = ExtResource("5_hkv4y")
 expand_icon = true
 
 [node name="Player" parent="." instance=ExtResource("3_tc4d2")]
-position = Vector2(112, 490)
+position = Vector2(390, 490)
 
 [node name="HUD" parent="." instance=ExtResource("4_485ph")]
 

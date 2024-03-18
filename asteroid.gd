@@ -11,6 +11,8 @@ const gravity_speed = 10
 var explosion_occurred = false
 
 func _ready():
+	var rng = RandomNumberGenerator.new()
+	rng.seed = position.x + position.y
 	$AnimatedSprite2D.frame = randi_range(0, 3)
 
 func init(dest):
@@ -27,6 +29,9 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		# Make the asteroid invisible
 		$AnimatedSprite2D.visible = false
+		set_collision_layer_value(3, false)
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(4, false)
 	move_and_slide()
 	
 # Function to handle when the asteroid exits the screen
