@@ -5,6 +5,7 @@ signal hurt
 @export var lives: int = 3
 
 const move_speed = 300
+
 const accel = 600
 const shoot_cooldown = 0.5
 

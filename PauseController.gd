@@ -14,6 +14,7 @@ func pause() -> void:
 	$ResumeButton.show()
 	$PauseButton.hide()
 	
+	
 func resume() -> void:
 	get_tree().set_pause(true)
 	$ResumeButton.hide()
