@@ -45,3 +45,10 @@ func _on_player_hurt():
 		$HUD/Heart2.hide()
 	if $Player.lives ==0:
 		$HUD/Heart1.hide()
+
+func _on_area_2d_body_entered(body):
+	$Player._on_body_entered(body)
+
+
+func _on_button_pressed():
+	print("success")

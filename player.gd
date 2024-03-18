@@ -48,6 +48,6 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	lives -=1
-	body.queue_free()
+	body.activate_particle()
 	hurt.emit()
 	#if lives == 0:

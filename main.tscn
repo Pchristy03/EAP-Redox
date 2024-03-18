@@ -45,7 +45,7 @@ position = Vector2(390, 490)
 [node name="HUD" parent="." instance=ExtResource("4_485ph")]
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(387, 1200)
@@ -53,9 +53,10 @@ shape = SubResource("CapsuleShape2D_wtbbb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("4_lpshr")]
+[node name="PauseMenu" parent="." instance=ExtResource("4_lpshr")]
 
 [connection signal="pressed" from="PauseController/ResumeButton" to="PauseController" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseController/PauseButton" to="PauseController" method="_on_pause_button_pressed"]
 [connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

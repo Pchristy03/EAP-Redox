@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfaqyqp5seefj"]
+[gd_scene load_steps=4 format=3 uid="uid://dfaqyqp5seefj"]
 
 [ext_resource type="Texture2D" uid="uid://dncyre6ys6mwy" path="res://Art Assets/Earth.png" id="1_4mw2c"]
 [ext_resource type="Texture2D" uid="uid://5exl1ejw5wvv" path="res://Art Assets/Unofficial Game Heart.png" id="2_no8fw"]
+[ext_resource type="FontFile" uid="uid://uixhy1hh6n58" path="res://Fonts/Kenney Pixel.ttf" id="3_677wm"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = -1
@@ -31,3 +32,11 @@ offset_top = 9.0
 offset_right = 1094.0
 offset_bottom = 60.0
 texture = ExtResource("2_no8fw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 775.0
+offset_top = 67.0
+offset_right = 1140.0
+offset_bottom = 524.0
+theme_override_fonts/font = ExtResource("3_677wm")
+text = "Test Text"
