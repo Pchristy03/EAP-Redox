@@ -23,11 +23,12 @@ func create_random_ast(number_of_asters):
 		var randomX = randf_range(spawnArea.position.x, spawnArea.end.x) 
 		var randomY = randf_range(spawnArea.position.y, spawnArea.end.y)
 		aster.position = Vector2(randomX, randomY)
+		aster.init(0)
 		aster.add_to_group("Asteroids")
 		add_child(aster)
 		
 		var timeout_dur = randf_range(0.7, 2.4)
-		print(aster.position, timeout_dur)
+		#print(aster.position, timeout_dur)
 		await get_tree().create_timer(timeout_dur).timeout
 
 func _on_player_shoot(location):
