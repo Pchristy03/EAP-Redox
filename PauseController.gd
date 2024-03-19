@@ -3,11 +3,12 @@ extends Node
 @export var can_pause : bool = true
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("menu_pause"):
-		if get_tree().paused:
-			resume()
-		else:
-			pause()
+	#if Input.is_action_just_pressed("menu_pause"):
+	#	if get_tree().paused:
+	#		resume()
+	#	else:
+	#		pause()
+	pass
 
 func pause() -> void:
 	get_tree().set_pause(false)

@@ -23,7 +23,7 @@ func create_random_ast(number_of_asters):
 		var randomX = randf_range(spawnArea.position.x, spawnArea.end.x) 
 		var randomY = randf_range(spawnArea.position.y, spawnArea.end.y)
 		aster.position = Vector2(randomX, randomY)
-		aster.init(0)
+		aster.init(-1, -1)
 		aster.add_to_group("Asteroids")
 		add_child(aster)
 		
@@ -40,15 +40,11 @@ func _on_player_shoot(location):
 
 func _on_player_hurt():
 	if $Player.lives ==2:
-		$HUD/Heart3.hide()
+		$HUD/HeartContainer/Heart3.hide()
 	if $Player.lives ==1:
-		$HUD/Heart2.hide()
+		$HUD/HeartContainer/Heart2.hide()
 	if $Player.lives ==0:
-		$HUD/Heart1.hide()
+		$HUD/HeartContainer/Heart1.hide()
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
-
-
-func _on_button_pressed():
-	print("success")
