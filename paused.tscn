@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://cig7gntcjrv0s"]
+
+[ext_resource type="Script" path="res://paused.gd" id="1_51koo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ell1o"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchor_right = 0.997
+anchor_bottom = 0.952
+offset_right = 0.455933
+offset_bottom = 28.104
+script = ExtResource("1_51koo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_ell1o")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_right = 143.5
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Paused
+"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -81.5
+offset_right = 69.5
+offset_bottom = -21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 29
+text = "Resume"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -13.5
+offset_right = 78.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 29
+text = "Quit
+"
+
+[connection signal="pressed" from="Resume" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

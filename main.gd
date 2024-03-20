@@ -5,6 +5,21 @@ extends Node
 
 func _ready():
 	create_random_ast(10)
+	
+func paused():
+	get_tree().set_pause(true)
+	$PauseMenu.visible = true
+
+func resume():
+	get_tree().set_pause(false)
+	$PauseMenu.visible = false
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("menu_pause"):
+		if get_tree().paused:
+			resume()
+		else:
+			paused()
 
 func create_ast(start_points):
 	for i in range(len(start_points)):
@@ -48,3 +63,10 @@ func _on_player_hurt():
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
+
+
+func _on_pause_menu_toggle_resume():
+	resume()
+
+func _on_pause_menu_quit():
+	get_tree().quit()
