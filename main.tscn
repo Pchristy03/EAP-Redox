@@ -1,14 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6ptmm0gi8ugi"]
+[gd_scene load_steps=8 format=3 uid="uid://b6ptmm0gi8ugi"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mgsto"]
 [ext_resource type="PackedScene" uid="uid://dx5bv4rboi0lv" path="res://asteroid.tscn" id="2_bot5a"]
 [ext_resource type="PackedScene" uid="uid://7l77yofggtif" path="res://projectile.tscn" id="3_ijxf1"]
 [ext_resource type="PackedScene" uid="uid://bxt30ase8f12x" path="res://player.tscn" id="3_tc4d2"]
 [ext_resource type="PackedScene" uid="uid://dfaqyqp5seefj" path="res://hud.tscn" id="4_485ph"]
-[ext_resource type="PackedScene" uid="uid://73c01a126pjr" path="res://pause_controller.tscn" id="4_gvn3p"]
 [ext_resource type="PackedScene" uid="uid://brq6sjhh8udp6" path="res://pause_menu.tscn" id="4_lpshr"]
-[ext_resource type="Texture2D" uid="uid://b5how2ph1wmt8" path="res://Art Assets/Pause Button.png" id="5_hkv4y"]
-[ext_resource type="Texture2D" uid="uid://cspwhfn2gcwcn" path="res://Art Assets/Play Button.png" id="6_okrin"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtbbb"]
 radius = 673.0
@@ -18,26 +15,6 @@ height = 1400.0
 script = ExtResource("1_mgsto")
 ast_scene = ExtResource("2_bot5a")
 proj_scene = ExtResource("3_ijxf1")
-
-[node name="PauseController" parent="." instance=ExtResource("4_gvn3p")]
-process_mode = 3
-
-[node name="ResumeButton" type="Button" parent="PauseController"]
-visible = false
-offset_left = 722.0
-offset_top = 4.0
-offset_right = 764.0
-offset_bottom = 46.0
-icon = ExtResource("6_okrin")
-expand_icon = true
-
-[node name="PauseButton" type="Button" parent="PauseController"]
-offset_left = 722.0
-offset_top = 5.0
-offset_right = 762.0
-offset_bottom = 49.0
-icon = ExtResource("5_hkv4y")
-expand_icon = true
 
 [node name="Player" parent="." instance=ExtResource("3_tc4d2")]
 position = Vector2(390, 490)
@@ -54,8 +31,6 @@ shape = SubResource("CapsuleShape2D_wtbbb")
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_lpshr")]
 
-[connection signal="pressed" from="PauseController/ResumeButton" to="PauseController" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseController/PauseButton" to="PauseController" method="_on_pause_button_pressed"]
 [connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

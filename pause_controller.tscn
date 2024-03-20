@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://73c01a126pjr"]
-
-[ext_resource type="Script" path="res://PauseController.gd" id="1_mphku"]
-
-[node name="PauseController" type="Node"]
-script = ExtResource("1_mphku")

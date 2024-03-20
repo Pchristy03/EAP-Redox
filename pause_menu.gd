@@ -14,17 +14,23 @@ func _process(delta: float) -> void:
 func pause() -> void:
 	$BlurAnimation.play("blur")
 	get_tree().set_pause(true)
-	# $ResumeButton.show()
-	# $PauseButton.hide()
+	$ResumeIconButton.show()
+	$PauseIconButton.hide()
 
 func resume() -> void:
 	$BlurAnimation.play_backwards("blur")
 	get_tree().set_pause(false)
-	# $ResumeButton.hide()
-	# $PauseButton.show()
+	$ResumeIconButton.hide()
+	$PauseIconButton.show()
 
 func _on_resume_pressed():
-	get_tree().set_pause(false)
+	resume()
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+func _on_resume_icon_button_pressed():
+	resume()
+
+func _on_pause_icon_button_pressed():
+	pause()

@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brq6sjhh8udp6"]
+[gd_scene load_steps=9 format=3 uid="uid://brq6sjhh8udp6"]
 
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_b2kkh"]
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_wpybx"]
+[ext_resource type="Texture2D" uid="uid://cspwhfn2gcwcn" path="res://Art Assets/Play Button.png" id="3_hetrq"]
+[ext_resource type="Texture2D" uid="uid://b5how2ph1wmt8" path="res://Art Assets/Pause Button.png" id="4_mi06s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vm005"]
 shader = ExtResource("1_b2kkh")
@@ -101,6 +103,23 @@ offset_top = 4.0
 offset_right = 1154.0
 offset_bottom = 649.0
 
+[node name="ResumeIconButton" type="Button" parent="."]
+visible = false
+offset_left = 720.0
+offset_top = 4.0
+offset_right = 762.0
+offset_bottom = 46.0
+icon = ExtResource("3_hetrq")
+expand_icon = true
+
+[node name="PauseIconButton" type="Button" parent="."]
+offset_left = 720.0
+offset_top = 5.0
+offset_right = 760.0
+offset_bottom = 49.0
+icon = ExtResource("4_mi06s")
+expand_icon = true
+
 [node name="BlurAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_q12fl")
@@ -108,3 +127,7 @@ libraries = {
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ResumeIconButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ResumeIconButton" to="." method="_on_resume_icon_button_pressed"]
+[connection signal="pressed" from="PauseIconButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseIconButton" to="." method="_on_pause_icon_button_pressed"]
