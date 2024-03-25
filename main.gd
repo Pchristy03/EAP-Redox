@@ -61,6 +61,8 @@ func _on_player_hurt():
 		$HUD/HudBG/HeartBG/HeartContainer/Heart2.hide()
 	if $Player.lives ==0:
 		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
+		$HUD/GAMEOVERBackground.show()
+		get_tree().set_pause(true)
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
