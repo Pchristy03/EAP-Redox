@@ -46,9 +46,10 @@ func create_random_ast(number_of_asters):
 		#print(aster.position, timeout_dur)
 		await get_tree().create_timer(timeout_dur).timeout
 
-func _on_player_shoot(location):
+func _on_player_shoot(location, color):
 	var proj = proj_scene.instantiate()
 	proj.position = location
+	proj.setColor(color)
 	proj.add_to_group("Projectiles")
 	add_child(proj)
 

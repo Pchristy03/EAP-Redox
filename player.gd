@@ -9,6 +9,7 @@ const move_speed = 300
 const accel = 600
 const shoot_cooldown = 0.5
 
+var shot_type = 0
 var can_shoot = true
 var cooldown_timer = 0
 
@@ -17,9 +18,15 @@ const r_boundary = 750
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") and can_shoot:
-		emit_signal("shoot", Vector2(position.x, (position.y - 10)))
+		emit_signal("shoot", Vector2(position.x, (position.y - 10)), shot_type)
 		can_shoot = false
 		cooldown_timer = shoot_cooldown
+	elif Input.is_action_just_pressed("switch_laser"):
+		if shot_type == 0:
+			shot_type = 1
+		else:
+			shot_type = 0
+				
 		
 		# Update cooldown timer
 	if !can_shoot:
