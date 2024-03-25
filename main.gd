@@ -56,11 +56,11 @@ func _on_player_shoot(location, color):
 
 func _on_player_hurt():
 	if $Player.lives ==2:
-		$HUD/HeartContainer/Heart3.hide()
+		$HUD/HudBG/HeartBG/HeartContainer/Heart3.hide()
 	if $Player.lives ==1:
-		$HUD/HeartContainer/Heart2.hide()
+		$HUD/HudBG/HeartBG/HeartContainer/Heart2.hide()
 	if $Player.lives ==0:
-		$HUD/HeartContainer/Heart1.hide()
+		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
