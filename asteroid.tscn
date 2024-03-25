@@ -12,33 +12,18 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_viuj2")
-}],
-"loop": true,
-"name": &"asteroid1",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_e7fq2")
-}],
-"loop": true,
-"name": &"asteroid2",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_047md")
-}],
-"loop": true,
-"name": &"asteroid3",
-"speed": 5.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_yrp5t")
 }],
 "loop": true,
-"name": &"asteroid4",
+"name": &"asteroid1",
 "speed": 5.0
 }]
 

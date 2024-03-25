@@ -46,6 +46,9 @@ func create_random_ast(number_of_asters):
 		#print(aster.position, timeout_dur)
 		await get_tree().create_timer(timeout_dur).timeout
 
+func enter_game_over():
+	get_tree().call_group("Asteroids", "activate_particle")
+
 func _on_player_shoot(location, color):
 	var proj = proj_scene.instantiate()
 	proj.position = location
@@ -62,11 +65,12 @@ func _on_player_hurt():
 	if $Player.lives ==0:
 		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
 		$HUD/GAMEOVERBackground.show()
+		enter_game_over()
+		await get_tree().create_timer(2).timeout
 		get_tree().set_pause(true)
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
-
 
 func _on_pause_menu_toggle_resume():
 	resume()

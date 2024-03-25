@@ -37,9 +37,7 @@ func _physics_process(delta):
 		# If explosion has occurred, stop the asteroid
 		velocity = Vector2.ZERO
 		
-		set_collision_layer_value(3, false)
-		set_collision_mask_value(1, false)
-		set_collision_mask_value(4, false)
+		
 	move_and_slide()
 	
 # Function to handle when the asteroid exits the screen
@@ -55,5 +53,8 @@ func activate_particle():
 	# Make the asteroid invisible
 	$AnimatedSprite2D.visible = false
 	$Value.visible = false
+	set_collision_layer_value(3, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(4, false)
 	await get_tree().create_timer(2).timeout
 	queue_free()
