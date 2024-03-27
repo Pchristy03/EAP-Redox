@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6ptmm0gi8ugi"]
+[gd_scene load_steps=8 format=3 uid="uid://b6ptmm0gi8ugi"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mgsto"]
 [ext_resource type="PackedScene" uid="uid://dx5bv4rboi0lv" path="res://asteroid.tscn" id="2_bot5a"]
 [ext_resource type="PackedScene" uid="uid://7l77yofggtif" path="res://projectile.tscn" id="3_ijxf1"]
 [ext_resource type="PackedScene" uid="uid://bxt30ase8f12x" path="res://player.tscn" id="3_tc4d2"]
 [ext_resource type="PackedScene" uid="uid://dfaqyqp5seefj" path="res://hud.tscn" id="4_485ph"]
+[ext_resource type="PackedScene" uid="uid://cig7gntcjrv0s" path="res://paused.tscn" id="6_btfp8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtbbb"]
 radius = 673.0
@@ -14,6 +15,8 @@ height = 1400.0
 script = ExtResource("1_mgsto")
 ast_scene = ExtResource("2_bot5a")
 proj_scene = ExtResource("3_ijxf1")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_btfp8")]
 
 [node name="Player" parent="." instance=ExtResource("3_tc4d2")]
 position = Vector2(390, 490)
@@ -28,6 +31,8 @@ collision_mask = 4
 position = Vector2(387, 1200)
 shape = SubResource("CapsuleShape2D_wtbbb")
 
+[connection signal="Quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="toggleResume" from="PauseMenu" to="." method="_on_pause_menu_toggle_resume"]
 [connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
