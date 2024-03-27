@@ -6,7 +6,7 @@ var velocity_dir
 
 
 func _ready():
-	velocity_dir = Vector2(0, -1).normalized()  # Adjust this direction according to your projectile's initial movement
+	velocity_dir = Vector2(0, -1).normalized() 
 
 func _physics_process(delta):
 	position += velocity_dir * speed * delta

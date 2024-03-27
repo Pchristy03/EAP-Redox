@@ -36,8 +36,6 @@ func _physics_process(delta):
 	else:
 		# If explosion has occurred, stop the asteroid
 		velocity = Vector2.ZERO
-		
-		
 	move_and_slide()
 	
 # Function to handle when the asteroid exits the screen

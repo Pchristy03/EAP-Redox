@@ -17,18 +17,23 @@ const l_boundary = 10
 const r_boundary = 750
 
 func _process(_delta):
+	# Check if the "ui_accept" action is just pressed and the player can shoot
 	if Input.is_action_just_pressed("ui_accept") and can_shoot:
+		# Emit a "shoot" signal with the current position adjusted slightly upwards and the current shot type
 		emit_signal("shoot", Vector2(position.x, (position.y - 10)), shot_type)
+		# Set can_shoot to false to prevent shooting until cooldown is over
 		can_shoot = false
+		# Start the cooldown timer
 		cooldown_timer = shoot_cooldown
+		
+	# Check if the "switch_laser" action is just pressed
 	elif Input.is_action_just_pressed("switch_laser"):
 		if shot_type == 0:
 			shot_type = 1
 		else:
 			shot_type = 0
 				
-		
-		# Update cooldown timer
+	# If the player can't shoot due to cooldown
 	if !can_shoot:
 		cooldown_timer -= get_process_delta_time()
 		if cooldown_timer <= 0:
