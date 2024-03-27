@@ -46,20 +46,28 @@ func create_random_ast(number_of_asters):
 		#print(aster.position, timeout_dur)
 		await get_tree().create_timer(timeout_dur).timeout
 
-func _on_player_shoot(location):
+func enter_game_over():
+	get_tree().call_group("Asteroids", "activate_particle")
+
+func _on_player_shoot(location, color):
 	var proj = proj_scene.instantiate()
 	proj.position = location
+	proj.setColor(color)
 	proj.add_to_group("Projectiles")
 	add_child(proj)
 
 
 func _on_player_hurt():
 	if $Player.lives ==2:
-		$HUD/HeartContainer/Heart3.hide()
+		$HUD/HudBG/HeartBG/HeartContainer/Heart3.hide()
 	if $Player.lives ==1:
-		$HUD/HeartContainer/Heart2.hide()
+		$HUD/HudBG/HeartBG/HeartContainer/Heart2.hide()
 	if $Player.lives ==0:
-		$HUD/HeartContainer/Heart1.hide()
+		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
+		$HUD/GAMEOVERBackground.show()
+		enter_game_over()
+		await get_tree().create_timer(2).timeout
+		get_tree().set_pause(true)
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
@@ -67,6 +75,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_pause_menu_toggle_resume():
 	resume()
+	
 
 func _on_pause_menu_quit():
 	get_tree().quit()
