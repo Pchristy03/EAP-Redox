@@ -76,6 +76,5 @@ func _on_area_2d_body_entered(body):
 func _on_pause_menu_toggle_resume():
 	resume()
 	
-
 func _on_pause_menu_quit():
 	get_tree().quit()
