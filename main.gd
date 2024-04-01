@@ -3,6 +3,8 @@ extends Node
 @export var ast_scene: PackedScene
 @export var proj_scene: PackedScene
 
+var text_handler = FileAccess.open(("res://"), FileAccess.READ)
+
 func _ready():
 	create_random_ast(10)
 	
@@ -21,13 +23,6 @@ func _process(delta: float) -> void:
 		else:
 			paused()
 
-func create_ast(start_points):
-	for i in range(len(start_points)):
-		var aster = ast_scene.instantiate()
-		aster.position = Vector2(start_points[i], 0)
-		aster.add_to_group("Asteroids")
-		add_child(aster)
-		
 func create_random_ast(number_of_asters):
 	# create spawning area
 	var spawnArea = Rect2(0, -25, 750, 0)
@@ -38,6 +33,7 @@ func create_random_ast(number_of_asters):
 		var randomX = randf_range(spawnArea.position.x, spawnArea.end.x) 
 		var randomY = randf_range(spawnArea.position.y, spawnArea.end.y)
 		aster.position = Vector2(randomX, randomY)
+		#Arg1 is destination Arg2 is for the value
 		aster.init(-1, -1)
 		aster.add_to_group("Asteroids")
 		add_child(aster)
@@ -45,6 +41,15 @@ func create_random_ast(number_of_asters):
 		var timeout_dur = randf_range(0.7, 2.4)
 		#print(aster.position, timeout_dur)
 		await get_tree().create_timer(timeout_dur).timeout
+
+func next():
+	return text_handler.next_line().split(",", false)
+
+func incr_HUD():
+	var next_set = next()
+	$HUD/EquationBG/Equation.text = [0] #Replace with index of Equation
+	$HUD/InstrBG/Instruction.text = [0]
+	pass
 
 func enter_game_over():
 	get_tree().call_group("Asteroids", "activate_particle")
