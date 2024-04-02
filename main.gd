@@ -94,11 +94,11 @@ func _on_player_shoot(location, color):
 
 func _on_player_hurt():
 	if $Player.lives ==2:
-		$HUD/HudBG/HeartBG/HeartContainer/Heart3.hide()
+		$HUD/HeartBG/HeartContainer/Heart3.hide()
 	if $Player.lives ==1:
-		$HUD/HudBG/HeartBG/HeartContainer/Heart2.hide()
+		$HUD/HeartBG/HeartContainer/Heart2.hide()
 	if $Player.lives ==0:
-		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
+		$HUD/HeartBG/HeartContainer/Heart1.hide()
 		$HUD/GAMEOVERBackground.show()
 		enter_game_over()
 
