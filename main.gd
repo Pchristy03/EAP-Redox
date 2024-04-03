@@ -40,8 +40,7 @@ func create_random_ast(number_of_asters, ans):
 		var randomX = randf_range(spawnArea.position.x, spawnArea.end.x) 
 		var randomY = randf_range(spawnArea.position.y, spawnArea.end.y)
 		aster.position = Vector2(randomX, randomY)
-		#Arg1 is destination Arg2 is for the value
-		aster.init(-1, -1)
+		
 		var num = randi_range(0, 9)
 		if i == answer:
 			aster.init(true, ans)
@@ -67,7 +66,11 @@ func incr_HUD():
 	pass
 
 func enter_game_over():
+	game_over = true
 	get_tree().call_group("Asteroids", "activate_particle")
+	$HUD/GAMEOVERBackground.show()
+	$HUD/GAMEOVERBackground/Restart.show()
+	$Player.set_game_over()
 	
 func _on_asteroid_hit(corr):
 	num_asteroids_hit += 1
@@ -97,11 +100,7 @@ func _on_player_hurt():
 	if $Player.lives ==0:
 		print("Im a loser!")
 		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
-		$HUD/GAMEOVERBackground.show()
-		$HUD/GAMEOVERBackground/Restart.show()
 		enter_game_over()
-		#await get_tree().create_timer(2).timeout
-		#get_tree().set_pause(true)
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
