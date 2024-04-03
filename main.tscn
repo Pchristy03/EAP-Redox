@@ -16,8 +16,6 @@ script = ExtResource("1_mgsto")
 ast_scene = ExtResource("2_bot5a")
 proj_scene = ExtResource("3_ijxf1")
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_btfp8")]
-
 [node name="Player" parent="." instance=ExtResource("3_tc4d2")]
 position = Vector2(390, 490)
 
@@ -31,10 +29,13 @@ collision_mask = 4
 position = Vector2(387, 1200)
 shape = SubResource("CapsuleShape2D_wtbbb")
 
-[connection signal="Quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
-[connection signal="toggleResume" from="PauseMenu" to="." method="_on_pause_menu_toggle_resume"]
+[node name="PauseMenu" parent="." instance=ExtResource("6_btfp8")]
+z_index = 1
+
 [connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
 [connection signal="laserType" from="Player" to="." method="_on_player_laser_type"]
 [connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
 [connection signal="restart" from="HUD" to="." method="_on_hud_restart"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="Quit" from="PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="toggleResume" from="PauseMenu" to="." method="_on_pause_menu_toggle_resume"]
