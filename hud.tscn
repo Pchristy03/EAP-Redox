@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfaqyqp5seefj"]
+[gd_scene load_steps=10 format=3 uid="uid://dfaqyqp5seefj"]
 
 [ext_resource type="Texture2D" uid="uid://dncyre6ys6mwy" path="res://Art Assets/Earth.png" id="1_4mw2c"]
+[ext_resource type="Script" path="res://hud.gd" id="1_dpywu"]
 [ext_resource type="Texture2D" uid="uid://5exl1ejw5wvv" path="res://Art Assets/Unofficial Game Heart.png" id="2_no8fw"]
 [ext_resource type="FontFile" uid="uid://uixhy1hh6n58" path="res://Fonts/Kenney Pixel.ttf" id="3_677wm"]
 [ext_resource type="Texture2D" uid="uid://bnfm6skta28iu" path="res://Art Assets/Dolphin (2).png" id="3_djank"]
@@ -30,6 +31,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="CanvasLayer"]
 layer = 0
+script = ExtResource("1_dpywu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1152.0
@@ -143,21 +145,33 @@ color = Color(0.733333, 0, 0.145098, 0.490196)
 
 [node name="GAMEOVERLabel" type="Label" parent="GAMEOVERBackground"]
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_right = 87.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_mh17g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="GAMEOVERBackground"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = -20.5
-offset_right = 87.0
-offset_bottom = 20.5
+offset_left = -136.0
+offset_top = -49.0
+offset_right = 117.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "GAME OVER"
-label_settings = SubResource("LabelSettings_mh17g")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 29
+text = "RESTART"
 
 [node name="AmmoTypeOutline" type="ColorRect" parent="."]
 offset_left = 661.0
@@ -167,6 +181,7 @@ offset_bottom = 648.0
 color = Color(1, 0, 0, 1)
 
 [node name="AmmoTypeBG" type="ColorRect" parent="AmmoTypeOutline"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 102.0
@@ -181,3 +196,5 @@ text = "Text"
 label_settings = SubResource("LabelSettings_n13gn")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="GAMEOVERBackground/Restart" to="." method="_on_restart_pressed"]
