@@ -149,19 +149,44 @@ offset_right = 763.0
 offset_bottom = 648.0
 color = Color(1, 0, 0, 1)
 
-[node name="AmmoTypeBG" type="ColorRect" parent="AmmoTypeOutline"]
+[node name="BlueAmmoTypeBG" type="ColorRect" parent="AmmoTypeOutline"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 102.0
 offset_bottom = 95.0
+color = Color(0, 0, 1, 1)
 
-[node name="AmmoType" type="Label" parent="AmmoTypeOutline"]
+[node name="BlueAmmoType" type="Label" parent="AmmoTypeOutline/BlueAmmoTypeBG"]
 layout_mode = 2
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 100.0
+offset_bottom = 93.0
+size_flags_vertical = 1
+text = "Blue
+Laser"
+label_settings = SubResource("LabelSettings_n13gn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RedAmmoTypeBG2" type="ColorRect" parent="AmmoTypeOutline"]
+visible = false
+offset_left = 2.0
+offset_top = 2.0
 offset_right = 102.0
 offset_bottom = 95.0
+color = Color(1, 0, 0, 1)
+
+[node name="RedAmmoType" type="Label" parent="AmmoTypeOutline/RedAmmoTypeBG2"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 100.0
+offset_bottom = 93.0
 size_flags_vertical = 1
-text = "Text"
+text = "Red
+Laser"
 label_settings = SubResource("LabelSettings_n13gn")
 horizontal_alignment = 1
 vertical_alignment = 1
