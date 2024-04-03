@@ -20,6 +20,7 @@ func _ready():
 func paused():
 	get_tree().set_pause(true)
 	$PauseMenu.visible = true
+	$PauseMenu/ScreenBlur.visible = true
 
 func resume():
 	get_tree().set_pause(false)

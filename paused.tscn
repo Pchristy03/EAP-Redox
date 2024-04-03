@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cig7gntcjrv0s"]
+[gd_scene load_steps=5 format=3 uid="uid://cig7gntcjrv0s"]
 
 [ext_resource type="Script" path="res://paused.gd" id="1_51koo"]
+[ext_resource type="Shader" path="res://paused.gdshader" id="2_bp6c8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnh64"]
+shader = ExtResource("2_bp6c8")
+shader_parameter/lod = 2.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ell1o"]
 
@@ -13,6 +18,19 @@ anchor_bottom = 0.952
 offset_right = 0.455933
 offset_bottom = 28.104
 script = ExtResource("1_51koo")
+
+[node name="ScreenBlur" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dnh64")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.039
+offset_right = 31.0001
+offset_bottom = -0.155029
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
