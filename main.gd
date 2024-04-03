@@ -71,7 +71,7 @@ func enter_game_over():
 	$HUD/GAMEOVERBackground.show()
 	$HUD/GAMEOVERBackground/Restart.show()
 	$Player.set_game_over()
-	
+
 func _on_asteroid_hit(corr):
 	num_asteroids_hit += 1
 	if corr and not game_over:
@@ -91,14 +91,13 @@ func _on_player_shoot(location, color):
 	proj.add_to_group("Projectiles")
 	add_child(proj)
 
-
 func _on_player_hurt():
 	if $Player.lives ==2:
-		$HUD/HudBG/HeartBG/HeartContainer/Heart3.hide()
+		$HUD/HeartBG/HeartContainer/Heart3.hide()
 	if $Player.lives ==1:
-		$HUD/HudBG/HeartBG/HeartContainer/Heart2.hide()
+		$HUD/HeartBG/HeartContainer/Heart2.hide()
 	if $Player.lives ==0:
-		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
+		$HUD/HeartBG/HeartContainer/Heart1.hide()
 		enter_game_over()
 
 func _on_area_2d_body_entered(body):
