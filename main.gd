@@ -5,8 +5,14 @@ extends Node
 
 var text_handler = FileAccess.open(("res://"), FileAccess.READ)
 
+var num_asteroids_hit
+var asteroids_to_spawn = 7
+var answer = 3
+var game_over = false
+
 func _ready():
-	create_random_ast(10)
+	randomize()
+	create_random_ast(asteroids_to_spawn, answer)
 	
 func paused():
 	get_tree().set_pause(true)
@@ -23,9 +29,10 @@ func _process(delta: float) -> void:
 		else:
 			paused()
 
-func create_random_ast(number_of_asters):
+func create_random_ast(number_of_asters, ans):
 	# create spawning area
 	var spawnArea = Rect2(0, -25, 750, 0)
+	num_asteroids_hit = 0
 	
 	for i in range(number_of_asters + 1):
 		var aster = ast_scene.instantiate()
@@ -35,8 +42,16 @@ func create_random_ast(number_of_asters):
 		aster.position = Vector2(randomX, randomY)
 		#Arg1 is destination Arg2 is for the value
 		aster.init(-1, -1)
+		var num = randi_range(0, 9)
+		if i == answer:
+			aster.init(true, ans)
+		elif i == number_of_asters-1:
+			aster.init(true, ans)
+		else:
+			aster.init(false, num)
+		aster.hit.connect(_on_asteroid_hit)
 		aster.add_to_group("Asteroids")
-		add_child(aster)
+		call_deferred("add_child", aster)
 		
 		var timeout_dur = randf_range(0.7, 2.4)
 		#print(aster.position, timeout_dur)
@@ -53,6 +68,18 @@ func incr_HUD():
 
 func enter_game_over():
 	get_tree().call_group("Asteroids", "activate_particle")
+	
+func _on_asteroid_hit(corr):
+	num_asteroids_hit += 1
+	if corr and not game_over:
+		pass
+	if num_asteroids_hit >= asteroids_to_spawn and not game_over:
+		print("win")
+		
+		num_asteroids_hit = 0
+		asteroids_to_spawn = randi_range(5, 9)
+		answer = randi_range(1, 9)
+		create_random_ast(asteroids_to_spawn, answer)
 
 func _on_player_shoot(location, color):
 	var proj = proj_scene.instantiate()
