@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal shoot(location)
+signal laserType
 signal hurt
 @export var lives: int = 3
 
@@ -21,7 +22,7 @@ func _process(_delta):
 	# Check if the "ui_accept" action is just pressed and the player can shoot
 	if Input.is_action_just_pressed("ui_accept") and can_shoot and not game_over:
 		# Emit a "shoot" signal with the current position adjusted slightly upwards and the current shot type
-		emit_signal("shoot", Vector2(position.x, (position.y - 10)), shot_type)
+		emit_signal("shoot", Vector2(position.x, (position.y - 10)))
 		# Set can_shoot to false to prevent shooting until cooldown is over
 		can_shoot = false
 		# Start the cooldown timer
@@ -33,7 +34,8 @@ func _process(_delta):
 			shot_type = 1
 		else:
 			shot_type = 0
-				
+		emit_signal("laserType",shot_type)
+		
 	# If the player can't shoot due to cooldown
 	if !can_shoot:
 		cooldown_timer -= get_process_delta_time()

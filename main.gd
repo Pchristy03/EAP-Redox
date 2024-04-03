@@ -2,9 +2,12 @@ extends Node
 
 @export var ast_scene: PackedScene
 @export var proj_scene: PackedScene
+@export var play_scene: PackedScene
+
 
 var text_handler = FileAccess.open(("res://"), FileAccess.READ)
 
+var laser_type = 0
 var num_asteroids_hit
 var asteroids_to_spawn = 7
 var answer = 3
@@ -84,10 +87,10 @@ func _on_asteroid_hit(corr):
 		answer = randi_range(1, 9)
 		create_random_ast(asteroids_to_spawn, answer)
 
-func _on_player_shoot(location, color):
+func _on_player_shoot(location):
 	var proj = proj_scene.instantiate()
 	proj.position = location
-	proj.setColor(color)
+	proj.setColor(laser_type)
 	proj.add_to_group("Projectiles")
 	add_child(proj)
 
@@ -111,3 +114,7 @@ func _on_pause_menu_quit():
 
 func _on_hud_restart():
 	get_tree().reload_current_scene()
+
+
+func _on_player_laser_type(laserType):
+	laser_type = laserType
