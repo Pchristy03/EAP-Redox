@@ -119,3 +119,9 @@ func _on_hud_restart():
 
 func _on_player_laser_type(laserType):
 	laser_type = laserType
+	if laser_type == 0:
+		$HUD/AmmoTypeOutline/BlueAmmoTypeBG.show()
+		$HUD/AmmoTypeOutline/RedAmmoTypeBG2.hide()
+	else:
+		$HUD/AmmoTypeOutline/BlueAmmoTypeBG.hide()
+		$HUD/AmmoTypeOutline/RedAmmoTypeBG2.show()
