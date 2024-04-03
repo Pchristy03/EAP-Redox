@@ -98,20 +98,17 @@ func _on_player_hurt():
 	if $Player.lives ==1:
 		$HUD/HudBG/HeartBG/HeartContainer/Heart2.hide()
 	if $Player.lives ==0:
-		print("Im a loser!")
 		$HUD/HudBG/HeartBG/HeartContainer/Heart1.hide()
 		enter_game_over()
 
 func _on_area_2d_body_entered(body):
 	$Player._on_body_entered(body)
 
-
 func _on_pause_menu_toggle_resume():
 	resume()
-	
+
 func _on_pause_menu_quit():
 	get_tree().quit()
-
 
 func _on_hud_restart():
 	get_tree().reload_current_scene()
