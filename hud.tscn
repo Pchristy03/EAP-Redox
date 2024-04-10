@@ -172,6 +172,7 @@ vertical_alignment = 1
 
 [node name="RedAmmoTypeBG2" type="ColorRect" parent="AmmoTypeOutline"]
 visible = false
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 102.0

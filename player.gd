@@ -65,5 +65,5 @@ func set_game_over():
 
 func _on_body_entered(body):
 	lives -=1
-	body.activate_particle()
+	body.activate_particle(true)
 	hurt.emit()

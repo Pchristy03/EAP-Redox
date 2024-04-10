@@ -35,7 +35,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 # Function to activate the particle system for explosion
-func activate_particle(): 
+func activate_particle(res): 
 	# Activate the explosion particle system
 	$Explosion.emitting = true
 	# Set the explosion flag to true
@@ -46,6 +46,7 @@ func activate_particle():
 	set_collision_layer_value(3, false)
 	set_collision_mask_value(1, false)
 	set_collision_mask_value(4, false)
-	emit_signal("hit", correctness)
+	if res:
+		emit_signal("hit", correctness)
 	await get_tree().create_timer(2).timeout
 	queue_free()
