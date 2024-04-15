@@ -63,7 +63,11 @@ func _physics_process(delta):
 func set_game_over():
 	game_over = true
 
+func wrong_answer():
+	lives -=1
+	hurt.emit()
+
 func _on_body_entered(body):
 	lives -=1
-	body.activate_particle(true)
+	body.activate_particle(true, null)
 	hurt.emit()

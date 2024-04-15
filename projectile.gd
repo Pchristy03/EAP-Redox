@@ -18,5 +18,5 @@ func setColor(num):
 	$AnimatedSprite2D.frame = num 
 
 func _on_body_entered(body):
-	body.activate_particle(true)
+	body.activate_particle(true, $AnimatedSprite2D.frame)
 	queue_free()

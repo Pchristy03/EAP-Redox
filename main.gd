@@ -5,16 +5,18 @@ extends Node
 @export var play_scene: PackedScene
 
 
-var text_handler = FileAccess.open(("res://"), FileAccess.READ)
+var text_handler = FileAccess.open(("res://redoxcomp.txt"), FileAccess.READ)
 
 var laser_type = 0
 var num_asteroids_hit
 var asteroids_to_spawn = 7
 var answer = 3
 var game_over = false
+var won = false
 
 func _ready():
 	randomize()
+	incr_HUD()
 	create_random_ast(asteroids_to_spawn, answer)
 	
 func paused():
@@ -61,13 +63,19 @@ func create_random_ast(number_of_asters, ans):
 		#print(aster.position, timeout_dur)
 		await get_tree().create_timer(timeout_dur).timeout
 
-func next():
-	return text_handler.next_line().split(",", false)
+func next_line():
+	return text_handler.get_line()
 
 func incr_HUD():
-	var next_set = next()
-	$HUD/EquationBG/Equation.text = [0] #Replace with index of Equation
-	$HUD/InstrBG/Instruction.text = [0]
+	var next_set = str_to_var(next_line())
+	$HUD/EquationBG/Equation.text = next_set["equation"]
+	if randf() >= 0.5:
+		$HUD/InstrBG/Instruction.text = "What is the Oxidation change of " + next_set["oxchem"]
+		answer = next_set["oxchan"]
+	else:
+		$HUD/InstrBG/Instruction.text = "What is the Reduction change of " + next_set["redchem"]
+		answer = next_set["redchan"]
+	print("Answer: ", answer)
 
 func enter_game_over():
 	game_over = true
@@ -77,17 +85,22 @@ func enter_game_over():
 	$HUD/GAMEOVERBackground/Restart.show()
 	$Player.set_game_over()
 
-func _on_asteroid_hit(corr):
+func _on_asteroid_hit(corr, num):
 	if not $Player.lives == 0:
 		num_asteroids_hit += 1
-		#print(num_asteroids_hit)
-		if corr and not game_over:
-			pass
+		if num == 0:
+			if corr:
+				won = true
+			else:
+				$Player.wrong_answer()
 		if num_asteroids_hit >= asteroids_to_spawn and not game_over:
-			print("win")
-			
+			if won:
+				print("Won")
+			else:
+				print("Didn't get correct answer")
+			won = false
 			asteroids_to_spawn = randi_range(5, 9)
-			answer = randi_range(1, 9)
+			incr_HUD()
 			create_random_ast(asteroids_to_spawn, answer)
 
 func _on_player_shoot(location):
