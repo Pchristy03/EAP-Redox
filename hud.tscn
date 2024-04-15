@@ -1,34 +1,28 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfaqyqp5seefj"]
+[gd_scene load_steps=17 format=3 uid="uid://dfaqyqp5seefj"]
 
 [ext_resource type="Texture2D" uid="uid://dncyre6ys6mwy" path="res://Art Assets/Earth.png" id="1_4mw2c"]
 [ext_resource type="Script" path="res://hud.gd" id="1_dpywu"]
 [ext_resource type="Texture2D" uid="uid://5exl1ejw5wvv" path="res://Art Assets/Unofficial Game Heart.png" id="2_no8fw"]
 [ext_resource type="FontFile" uid="uid://uixhy1hh6n58" path="res://Fonts/Kenney Pixel.ttf" id="3_677wm"]
 [ext_resource type="Texture2D" uid="uid://bnfm6skta28iu" path="res://Art Assets/Dolphin (2).png" id="3_djank"]
-
-[sub_resource type="Gradient" id="Gradient_u5x4i"]
-colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mq0wb"]
-gradient = SubResource("Gradient_u5x4i")
-fill_from = Vector2(0.512821, 0)
-fill_to = Vector2(0.529915, 1)
+[ext_resource type="Texture2D" uid="uid://cvo21wl7ni4uu" path="res://hud_texture.tres" id="3_kdkke"]
 
 [sub_resource type="Gradient" id="Gradient_rl8eu"]
-offsets = PackedFloat32Array(0.781609, 1)
+offsets = PackedFloat32Array(0.883871, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_etkvp"]
 gradient = SubResource("Gradient_rl8eu")
-height = 4
+width = 80
+height = 19
 fill = 2
-fill_from = Vector2(0.4875, 0.5375)
-fill_to = Vector2(0, 0)
+fill_from = Vector2(0.5, 0.4)
+fill_to = Vector2(0, 0.45)
 metadata/_snap_enabled = true
-metadata/_snap_count = 80
+metadata/_snap_count = 20
 
 [sub_resource type="Gradient" id="Gradient_gbj4h"]
-offsets = PackedFloat32Array(0.888889, 1)
+offsets = PackedFloat32Array(0.916129, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_x83cb"]
@@ -48,6 +42,13 @@ font = ExtResource("3_677wm")
 font_size = 24
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_6jgf6"]
+offsets = PackedFloat32Array(0.374194, 1)
+colors = PackedColorArray(0, 0, 0.560784, 1, 0.75053, 0, 0.111017, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_crdlh"]
+gradient = SubResource("Gradient_6jgf6")
 
 [sub_resource type="LabelSettings" id="LabelSettings_n13gn"]
 font = ExtResource("3_677wm")
@@ -73,7 +74,7 @@ texture = ExtResource("1_4mw2c")
 offset_left = 763.0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = SubResource("GradientTexture2D_mq0wb")
+texture = ExtResource("3_kdkke")
 
 [node name="HeartBG" type="TextureRect" parent="."]
 offset_left = 773.0
@@ -139,10 +140,11 @@ autowrap_mode = 3
 
 [node name="Dolphin" type="TextureRect" parent="TipBG"]
 layout_mode = 0
-offset_left = 127.0
-offset_top = 345.0
-offset_right = 207.0
-offset_bottom = 445.0
+offset_left = 25.0
+offset_top = 31.0
+offset_right = 121.0
+offset_bottom = 154.0
+scale = Vector2(1.62352, 1.4107)
 texture = ExtResource("3_djank")
 
 [node name="EquationBG" type="TextureRect" parent="."]
@@ -183,22 +185,22 @@ offset_left = 661.0
 offset_top = 553.0
 offset_right = 763.0
 offset_bottom = 648.0
-texture = SubResource("GradientTexture2D_etkvp")
+texture = SubResource("GradientTexture2D_crdlh")
 
 [node name="BlueAmmoTypeBG" type="ColorRect" parent="AmmoTypeOutline"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 102.0
-offset_bottom = 95.0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 105.0
+offset_bottom = 100.0
+scale = Vector2(0.919158, 0.864217)
 color = Color(0, 0, 1, 1)
 
 [node name="BlueAmmoType" type="Label" parent="AmmoTypeOutline/BlueAmmoTypeBG"]
 layout_mode = 2
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 100.0
-offset_bottom = 93.0
+offset_top = 2.31426
+offset_right = 102.0
+offset_bottom = 97.3143
 size_flags_vertical = 1
 text = "Blue
 Laser"
@@ -208,19 +210,19 @@ vertical_alignment = 1
 
 [node name="RedAmmoTypeBG2" type="ColorRect" parent="AmmoTypeOutline"]
 visible = false
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 102.0
-offset_bottom = 95.0
-color = Color(1, 0, 0, 1)
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 107.0
+offset_bottom = 102.0
+scale = Vector2(0.919158, 0.864217)
+color = Color(0.894118, 0, 0, 1)
 
 [node name="RedAmmoType" type="Label" parent="AmmoTypeOutline/RedAmmoTypeBG2"]
 layout_mode = 2
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 100.0
-offset_bottom = 93.0
+offset_left = -2.1759
+offset_top = -2.31425
+offset_right = 99.8241
+offset_bottom = 92.6858
 size_flags_vertical = 1
 text = "Red
 Laser"
