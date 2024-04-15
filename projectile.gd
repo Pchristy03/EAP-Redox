@@ -15,8 +15,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 func setColor(num):
-	$AnimatedSprite2D.frame = num
+	$AnimatedSprite2D.frame = num 
 
 func _on_body_entered(body):
-	body.activate_particle()
+	body.activate_particle(true)
 	queue_free()
