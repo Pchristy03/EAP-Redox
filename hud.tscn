@@ -1,10 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfaqyqp5seefj"]
+[gd_scene load_steps=16 format=3 uid="uid://dfaqyqp5seefj"]
 
 [ext_resource type="Texture2D" uid="uid://dncyre6ys6mwy" path="res://Art Assets/Earth.png" id="1_4mw2c"]
 [ext_resource type="Script" path="res://hud.gd" id="1_dpywu"]
 [ext_resource type="Texture2D" uid="uid://5exl1ejw5wvv" path="res://Art Assets/Unofficial Game Heart.png" id="2_no8fw"]
 [ext_resource type="FontFile" uid="uid://uixhy1hh6n58" path="res://Fonts/Kenney Pixel.ttf" id="3_677wm"]
 [ext_resource type="Texture2D" uid="uid://bnfm6skta28iu" path="res://Art Assets/Dolphin (2).png" id="3_djank"]
+
+[sub_resource type="Gradient" id="Gradient_u5x4i"]
+colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mq0wb"]
+gradient = SubResource("Gradient_u5x4i")
+fill_from = Vector2(0.512821, 0)
+fill_to = Vector2(0.529915, 1)
+
+[sub_resource type="Gradient" id="Gradient_rl8eu"]
+offsets = PackedFloat32Array(0.781609, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_etkvp"]
+gradient = SubResource("Gradient_rl8eu")
+height = 4
+fill = 2
+fill_from = Vector2(0.4875, 0.5375)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 80
+
+[sub_resource type="Gradient" id="Gradient_gbj4h"]
+offsets = PackedFloat32Array(0.888889, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x83cb"]
+gradient = SubResource("Gradient_gbj4h")
+fill = 2
+fill_from = Vector2(0.491453, 0.487179)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ayf55"]
 font = ExtResource("3_677wm")
@@ -38,16 +69,18 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_4mw2c")
 
-[node name="HudBG" type="ColorRect" parent="."]
+[node name="HudBG" type="TextureRect" parent="."]
 offset_left = 763.0
 offset_right = 1152.0
 offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_mq0wb")
 
-[node name="HeartBG" type="ColorRect" parent="."]
+[node name="HeartBG" type="TextureRect" parent="."]
 offset_left = 773.0
 offset_top = 10.0
 offset_right = 1142.0
-offset_bottom = 60.0
+offset_bottom = 74.0
+texture = SubResource("GradientTexture2D_etkvp")
 
 [node name="HeartContainer" type="Control" parent="HeartBG"]
 anchors_preset = 0
@@ -86,11 +119,12 @@ texture = ExtResource("2_no8fw")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="TipBG" type="ColorRect" parent="."]
+[node name="TipBG" type="TextureRect" parent="."]
 offset_left = 773.0
 offset_top = 65.0
 offset_right = 1142.0
 offset_bottom = 525.0
+texture = SubResource("GradientTexture2D_x83cb")
 
 [node name="Tip" type="Label" parent="TipBG"]
 layout_mode = 0
@@ -111,11 +145,12 @@ offset_right = 207.0
 offset_bottom = 445.0
 texture = ExtResource("3_djank")
 
-[node name="EquationBG" type="ColorRect" parent="."]
+[node name="EquationBG" type="TextureRect" parent="."]
 offset_left = 773.0
 offset_top = 531.0
 offset_right = 1142.0
-offset_bottom = 583.0
+offset_bottom = 595.0
+texture = SubResource("GradientTexture2D_etkvp")
 
 [node name="Equation" type="Label" parent="EquationBG"]
 layout_mode = 0
@@ -126,11 +161,12 @@ label_settings = SubResource("LabelSettings_4svwh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InstrBG" type="ColorRect" parent="."]
+[node name="InstrBG" type="TextureRect" parent="."]
 offset_left = 773.0
 offset_top = 588.0
 offset_right = 1142.0
-offset_bottom = 638.0
+offset_bottom = 652.0
+texture = SubResource("GradientTexture2D_etkvp")
 
 [node name="Instruction" type="Label" parent="InstrBG"]
 layout_mode = 0
@@ -142,12 +178,12 @@ label_settings = SubResource("LabelSettings_ayf55")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AmmoTypeOutline" type="ColorRect" parent="."]
+[node name="AmmoTypeOutline" type="TextureRect" parent="."]
 offset_left = 661.0
 offset_top = 553.0
 offset_right = 763.0
 offset_bottom = 648.0
-color = Color(1, 0, 0, 1)
+texture = SubResource("GradientTexture2D_etkvp")
 
 [node name="BlueAmmoTypeBG" type="ColorRect" parent="AmmoTypeOutline"]
 layout_mode = 0
