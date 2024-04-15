@@ -1,5 +1,3 @@
-equation,oxidation chem,change,reduction chem,change
-
-CH2O (aq) + O2 (g) -> CO2 (g) + H2O (l),C,4,O,2
-4 Cl- (aq) + O2 (g) + 4 H+ (aq) -> 2 H2O (l) + 2 Cl2 (g),Cl,1,O,2
-4 FeS2 (s) + 15 O2 (g) + 2 H2O (l) -> 4 Fe+3 + 8 SO4-3 + 4 H+ + 2 Fe2(SO4)3 + 2 H2SO4,Fe,1,O,2
+{"equation": "CH2O (aq) + O2 (g) -> CO2 (g) + H2O (l)", "oxchem": "C", "oxchan": 4, "redchem": "O", "redchan": 2}
+{"equation": "4 Cl- (aq) + O2 (g) + 4 H+ (aq) -> 2 H2O (l) + 2 Cl2 (g))", "oxchem": "Cl", "oxchan": 1, "redchem": "O", "redchan": 2}
+{"equation": "4 FeS2 (s) + 15 O2 (g) + 2 H2O (l) -> 4 Fe+3 + 8 SO4-3 + 4 H+ + 2 Fe2(SO4)3 + 2 H2SO4", "oxchem": "Fe", "oxchan": 1, "redchem": "O", "redchan": 2}
