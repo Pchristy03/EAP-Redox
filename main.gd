@@ -40,28 +40,28 @@ func create_random_ast(number_of_asters, ans):
 	var spawnArea = Rect2(0, -25, 750, 0)
 	num_asteroids_hit = 0
 	#print(number_of_asters)
-	
 	for i in range(number_of_asters):
-		var aster = ast_scene.instantiate()
+		if not game_over:
+			var aster = ast_scene.instantiate()
 
-		var randomX = randf_range(spawnArea.position.x, spawnArea.end.x) 
-		var randomY = randf_range(spawnArea.position.y, spawnArea.end.y)
-		aster.position = Vector2(randomX, randomY)
-		
-		var num = randi_range(0, 9)
-		if i == answer:
-			aster.init(true, ans)
-		elif i == number_of_asters-1:
-			aster.init(true, ans)
-		else:
-			aster.init(false, num)
-		aster.hit.connect(_on_asteroid_hit)
-		aster.add_to_group("Asteroids")
-		call_deferred("add_child", aster)
-		
-		var timeout_dur = randf_range(0.7, 2.4)
-		#print(aster.position, timeout_dur)
-		await get_tree().create_timer(timeout_dur).timeout
+			var randomX = randf_range(spawnArea.position.x, spawnArea.end.x) 
+			var randomY = randf_range(spawnArea.position.y, spawnArea.end.y)
+			aster.position = Vector2(randomX, randomY)
+			
+			var num = randi_range(0, 9)
+			if i == answer:
+				aster.init(true, ans)
+			elif i == number_of_asters-1:
+				aster.init(true, ans)
+			else:
+				aster.init(false, num)
+			aster.hit.connect(_on_asteroid_hit)
+			aster.add_to_group("Asteroids")
+			call_deferred("add_child", aster)
+			
+			var timeout_dur = randf_range(0.7, 2.4)
+			#print(aster.position, timeout_dur)
+			await get_tree().create_timer(timeout_dur).timeout
 
 func next_line():
 	return text_handler.get_line()
@@ -79,14 +79,14 @@ func incr_HUD():
 
 func enter_game_over():
 	game_over = true
-	print('game over')
+	print('Game Over')
 	get_tree().call_group("Asteroids", "activate_particle", false)
 	$HUD/GAMEOVERBackground.show()
 	$HUD/GAMEOVERBackground/Restart.show()
 	$Player.set_game_over()
 
 func _on_asteroid_hit(corr, num):
-	if not $Player.lives == 0:
+	if not game_over:
 		num_asteroids_hit += 1
 		if num == 0:
 			if corr:
@@ -99,7 +99,7 @@ func _on_asteroid_hit(corr, num):
 			else:
 				print("Didn't get correct answer")
 			won = false
-			asteroids_to_spawn = randi_range(5, 9)
+			asteroids_to_spawn = randi_range(7, 9)
 			incr_HUD()
 			create_random_ast(asteroids_to_spawn, answer)
 

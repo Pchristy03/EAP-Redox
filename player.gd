@@ -69,5 +69,5 @@ func wrong_answer():
 
 func _on_body_entered(body):
 	lives -=1
-	body.activate_particle(true, null)
+	body.activate_particle(-1)
 	hurt.emit()
